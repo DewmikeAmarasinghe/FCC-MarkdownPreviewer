@@ -1,0 +1,161 @@
+// Variables
+$primary: #4a90e2;
+$border: #ddd;
+$bg: #f8f9fa;
+$text: #333;
+$font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-mono: 'Courier New', Monaco, monospace;
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main;
+  color: $text;
+}
+
+// Layout container
+.container {
+  display: flex;
+  height: 100vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+// Editor and Previewer common styles
+.Editor,
+.Previewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.Editor {
+  border-right: 1px solid $border;
+
+  @media (max-width: 768px) {
+    border-right: none;
+    border-bottom: 1px solid $border;
+  }
+
+  &.expanded {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: white;
+  }
+
+  #editor {
+    flex: 1;
+    padding: 1rem;
+    font: 14px/1.5 $font-mono;
+    background: $bg;
+    border: none;
+    resize: none;
+    outline: none;
+
+    &:focus {
+      background: white;
+    }
+  }
+}
+
+.Previewer {
+  &.expanded {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: white;
+  }
+
+  #preview {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background: white;
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      color: $text;
+    }
+
+    h1 {
+      border-bottom: 2px solid $border;
+      padding-bottom: 0.5rem;
+    }
+
+    h2 {
+      border-bottom: 1px solid $border;
+      padding-bottom: 0.3rem;
+    }
+
+    p, ul, ol, blockquote, table, pre {
+      margin-bottom: 1rem;
+    }
+
+    code {
+      background: $bg;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: $font-mono;
+    }
+
+    pre {
+      padding: 1rem;
+      background: $bg;
+      border-left: 4px solid $primary;
+      border-radius: 5px;
+      overflow-x: auto;
+
+      code {
+        background: none;
+        padding: 0;
+      }
+    }
+
+    blockquote {
+      border-left: 4px solid $border;
+      padding-left: 1rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    ul, ol {
+      padding-left: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        border: 1px solid $border;
+        padding: 0.5rem;
+        text-align: left;
+      }
+
+      th {
+        background: $bg;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: $primary;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

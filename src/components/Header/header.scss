@@ -1,0 +1,27 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 0 10px;
+  margin: 0 0 auto;
+  color: black;
+
+  .symbol {
+    cursor: pointer;
+  }
+
+  .arrow {
+    cursor: pointer;
+  }
+
+  .title {
+    background: linear-gradient(to bottom, red, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+}
